@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#$ ssh root@host 'bash -s' < loading_allegro_image.sh [jenkins_link_for_build]
 
 echo "1. running containers ids: "
 running_containers_ids=$(docker ps -q)
