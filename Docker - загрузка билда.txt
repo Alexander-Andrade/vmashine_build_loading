@@ -1,0 +1,165 @@
+Downloading latest docker container, stopping old container, removing old container and images
+Loding new image and running a new container off it.#
+
+
+key commands to clean up old images/containers:
+
+docker images ....to list images
+docker ps .. to list running containers
+docker stop containerid .. to stop running container
+docker rm containerid .. to remove container
+docker rmi imageid .. to remove image 
+
+
+
+[root@sjx64310y allegrocontainers]# docker ps
+CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                                        NAMES
+52fe0100b6ea        allegro/devopsimage:dev122   "/usr/bin/supervisord"   22 hours ago        Up 22 hours         0.0.0.0:81->80/tcp, 0.0.0.0:3001->3000/tcp   tiny_goldberg
+
+
+[root@sjx64310y allegrocontainers]# docker stop 52fe0100b6ea
+52fe0100b6ea
+
+
+[root@sjx64310y allegrocontainers]# docker rm 52fe0100b6ea
+52fe0100b6ea
+
+
+[root@sjx64310y allegrocontainers]# docker images
+REPOSITORY            TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+allegro/devopsimage   dev122              fa861754ba9e        29 hours ago        1.494 GB
+allegro/devopsimage   dev119              342a65be897a        47 hours ago        1.493 GB
+allegro/devopsimage   dev117              1e86e51309e6        2 days ago          1.493 GB
+
+
+[root@sjx64310y allegrocontainers]# docker rmi 1e86e51309e6
+Untagged: allegro/devopsimage:dev117
+Deleted: 1e86e51309e65188b530b65d345487e3fb9b73bd05c9bb7ef1e2e21429f7507c
+Deleted: 7a576c100cf1a7dec5d0136d7880ba66642c9fe722f3c60b8612541090edae20
+Deleted: 7a5a1a902d1ecc968fc886001b783dc2ab5cc921d8d25b2027bf744d58ad6f2a
+Deleted: 7db26edaf34301348fc7dffc9eb0ba864f4688f9dbee74f38113334ac08cc48f
+Deleted: 5ca3fd39f9bd89abd28c99a4ef2484fa0f1814f10c43b43690426f7744effa8b
+Deleted: 1f120e044f9924a8294a5b086672ed6d79b9cf745e03bb34ae5dc15610b7963e
+Deleted: 4b2adc7d197b11d1aa821f36123900e0803be42abce36a996ecc86c59dbe0987
+Deleted: 5be3ffa7d6bd6d7163407957abbab750d40994caf3c5221b1aab328ef8b4313d
+Deleted: 678caa7fd1a307699ba83f2889baac5db93052150b4a018d50220b56c9c36a2c
+
+
+[root@sjx64310y allegrocontainers]# docker rmi 342a65be897a
+Deleted: 342a65be897a68dcdde70a9c7563281fa7e39be82df2d01f0397967327f80663
+Deleted: 02c06ee954e404c318fbe2da7d8227f3d57e0c6ba4abb844a5f7998075d811a9
+Deleted: 43154e48c05a9282ed3d67215304d2354bb49df628988e1392808310aded8503
+Deleted: 7aac232fa9c7b2c7a1444c4da9e192a06e2d790074972ef33f390f7a96907a5a
+Deleted: 91935a2f6def5de4756087c6415eb3d6b7c32c6990d7fe81296382eacacd4538
+Deleted: dd82b802bfe094aa624ae0d1d55277559e4884f73293595b753b0eb92de8b57c
+Deleted: faeb4f740ea0a3b09c4fac6805b9c63a02ced633bba8ad5e85db2b8c99254c56
+Deleted: f0e55439a339349542b38b716757ffa81b8bc2d624307ce1152fd0482adbb332
+Deleted: ade71e0ecbe5906db97b59dc5fa65927adf6f72e500fb22f04bcc603902f4b8c
+
+
+[root@sjx64310y allegrocontainers]# docker rmi fa861754ba9e
+Untagged: allegro/devopsimage:dev122
+Deleted: fa861754ba9ebe9eaf602996f9a0150a69e48b331fdf769e74cfcaf0a71f962e
+Deleted: 80d5d5817c5a25cd4c68f990d4814c2e2c3e18671658311027523a8a4a7fe096
+Deleted: c8751d78ef4c01794d3c621845e21ea6357db40b1909eae359ff1f49b0371f2f
+Deleted: e27ea028334322ecf82d2252784f38dc3a51c9186bc8d4fff38e3febd0357dee
+Deleted: a726926314424cb62470c8e793d2a02658212215e869d735fec6e4a2756df3d9
+Deleted: 0348cc65b8cbf8cf4245db3b1f03ba24d97697e0d215980013ad37169c5d5ca0
+Deleted: 2eda45151725d41244f623ea4b0d83a0d52ebd10eb26ecf5e09c4e3ea5c5525c
+Deleted: 671902b14d13a0877203f5a7272889aec4baf960e37e68ec976881ab0a5ebfc0
+Deleted: ce6d17a0abcfb0cfd738faceab32cf0e13ed092372167dca45b1c99f3010b5d2
+Deleted: 0d8acce7aa321521e039c57573f155ffe5c122b2704ea3c5a247b36c00b50e05
+Deleted: 75aed30e500541aa55da216a6fe2c46313515480742970c458710e6335697cbd
+Deleted: a4f275cbad1cd68f06dd580b8c7e96715c89bd6839f1a0c4485dec289bfa65fe
+Deleted: eab633507138056309a77c90248c5c3fa34b354d35e93385b9b8d5228a545967
+Deleted: 00928d76637be62a39f9e8530fbfc717c3ddff724ffa422c87f3e72e4b6b0ed1
+Deleted: ffca7dc7ade0d546c06857823e36d543318db47186f1cf088d006217271b8723
+Deleted: e7d22d96c4939e9ed4ed13ea319d714a44c3ae0665c72169f1c6f7f977b8fb25
+Deleted: 5a8c45c08829b5994e3e3514bed38b9a9f5cbf059afbe9698d440d17308c0427
+Deleted: 83301e4bb314bb3ae6fa884e70075be3dc8ceda61b98fc21e8de4c7a4018a997
+Deleted: 3cae9458a4863296d693a22790d494c921c1de78e2a42b39499d94b9c6137b45
+Deleted: ceb38196f307e283d570efaa1d9ad1a36134b5279af1136eaaec174ad2aedcd7
+Deleted: 9a5c47c19acd03279276d5ca126275d8fa754b4432da305e0ce96413b05b6654
+Deleted: f20285babde57e0e15a34064235931b517cde8fcc7a3896cef9c7b62590f87e0
+Deleted: c63fb41c2213f511f12f294dd729b9903a64d88f098c20d2350905ac1fdbcbba
+
+
+[root@sjx64310y allegrocontainers]# docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+[root@sjx64310y allegrocontainers]#
+
+
+
+
+________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________
+
+ÇÀÃÐÓÆÀÅÌ ÍÎÂÛÉ ÁÈËÄ
+________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________
+
+
+
+
+Downloading and loading/running off new container image build for allegro:
+
+[root@sjx64310y allegrocontainers]# wget http://sjx64gh0a.svl.ibm.com:8080/job/Allegro_DevOpsContainer/125/artifact/artifacts/allegro-devopsimage.b125.2016-01-13_15-12-50.tar.gz
+--2016-01-14 04:49:43--  http://sjx64gh0a.svl.ibm.com:8080/job/Allegro_DevOpsContainer/125/artifact/artifacts/allegro-devopsimage.b125.2016-01-13_15-12-50.tar.gz
+Resolving sjx64gh0a.svl.ibm.com (sjx64gh0a.svl.ibm.com)... 9.30.37.190
+Connecting to sjx64gh0a.svl.ibm.com (sjx64gh0a.svl.ibm.com)|9.30.37.190|:8080... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 582256581 (555M) [application/x-gtar]
+Saving to: ‘allegro-devopsimage.b125.2016-01-13_15-12-50.tar.gz’
+
+100%[===================================================================================================================>] 582,256,581 93.2MB/s   in 6.3s
+
+2016-01-14 04:49:50 (88.3 MB/s) - ‘allegro-devopsimage.b125.2016-01-13_15-12-50.tar.gz’ saved [582256581/582256581]
+
+
+[root@sjx64310y allegrocontainers]# ls -la
+total 4090916
+drwxr-xr-x   2 root root      4096 Jan 14 04:49 .
+drwxrwxrwt. 20 root root      4096 Jan 14 03:28 ..
+-rw-r--r--   1 root root 697215843 Jan  7 00:57 allegro-devopsimage.b104.2016-01-06_21-45-05.tar.gz
+-rw-r--r--   1 root root 581970784 Jan  7 19:40 allegro-devopsimage.b113.2016-01-07_16-29-58.tar.gz
+-rw-r--r--   1 root root 581974917 Jan 11 05:22 allegro-devopsimage.b117.2016-01-11_02-11-03.tar.gz
+-rw-r--r--   1 root root 582005092 Jan 12 05:08 allegro-devopsimage.b119.2016-01-12_01-57-12.tar.gz
+-rw-r--r--   1 root root 582260133 Jan 12 23:26 allegro-devopsimage.b122.2016-01-12_20-15-13.tar.gz
+-rw-r--r--   1 root root 582256581 Jan 13 18:24 allegro-devopsimage.b125.2016-01-13_15-12-50.tar.gz
+-rw-r--r--   1 root root        69 Jan 13 21:55 allegro-devopsimage.b128.2016-01-13_18-55-10.tar.gz
+-rw-r--r--   1 root root        69 Jan 13 21:55 allegro-devopsimage.b128.2016-01-13_18-55-10.tar.gz.1
+-rw-r--r--   1 root root 581382485 Jan  6 00:23 allegro-devopsimage.b92.2016-01-05_21-11-07.tar.gz
+
+
+[root@sjx64310y allegrocontainers]# docker load -i allegro-devopsimage.b125.2016-01-13_15-12-50.tar.gz
+
+
+[root@sjx64310y allegrocontainers]# docker images
+REPOSITORY            TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+allegro/devopsimage   dev125              789a1ee40578        10 hours ago        1.494 GB
+
+
+#[root@sjx64310y allegrocontainers]# docker run -d -p 81:80 -p 3001:3000 -e "RAILS_PORT=3001" allegro/devopsimage:dev125
+[root@Andradetest allegro_volume]# docker run -d -p 81:80 -p 444:443 -v /root/Documents/allegro_volume:/data allegro/devopsimage:dev549 
+899421a3e9938444122a58aad1c3ad0a0d49cdda6dbb7c64e830ac8eaec39770
+[root@sjx64310y allegrocontainers]
+
+
+=======================================================================================================================================================================
+=======================================================================================================================================================================
+
+Cleanup:
+ docker volume rm $(docker volume ls -qf dangling=true)
+
+
+
+/var/lib/docker/tmp
+rm -rf /var/lib/docker/tmp/*
+
+
+
+------------------------------------
+-----------------------------------
+SMTP ñåðâåð â Global Settings
+
+na.relay.ibm.com
