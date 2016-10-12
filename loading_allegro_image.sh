@@ -68,7 +68,7 @@ docker load -i $archive
 
 
 echo "9. run image..."
-image_info=$(docker images | grep -E '^allegro/devopsimage')
+image_info=$(docker images | grep -E '^allegro/*')
 image=$(echo $image_info | awk -e '{print $1}')
 tag=$(echo $image_info | awk -e '{print $2}')
 
