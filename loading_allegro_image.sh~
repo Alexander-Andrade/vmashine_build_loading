@@ -63,7 +63,7 @@ ls -la
 echo "7. loading build..."
 address=$1
 echo "load image from" $address
-wget -nv $address
+wget $address
 
 echo "8. load image from the archive..."
 archive=$(find . -name "allegro*")
